@@ -9,4 +9,16 @@ const MovieCard = ({ movie }) => {
     const movieImage = poster_path
      ? `https://image.tmdb.org/t/p/w500${poster_path}`
      : "default-image.jpg";
-}
+
+     return (
+        <div className="movie" onClick={() => navigate(`/movie/${id}`)}>
+          <div className="movie-card clickable">
+            <img src={movieImage} alt={movieTitle} />
+            <div className="movie-details">
+              <h2>{movieTitle}</h2>
+              <p><strong>Year:</strong> {movieYear}</p>
+            </div>
+          </div>
+        </div>
+      );
+    };
