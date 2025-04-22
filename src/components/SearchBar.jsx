@@ -13,4 +13,4 @@ const SearchBar = ({ searchTerm, onSearchChange, onSearch }) => (
   </div>
 );
 
-export default SearchBar;
+ export default SearchBar;
