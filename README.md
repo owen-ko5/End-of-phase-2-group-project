@@ -13,14 +13,14 @@ Before you run it on your computer, this is an example of how your project shoul
       
       End-of-phase-2-group-project/
       │
-      ├── public/              # These are static files
+      ├── public/              
       ├── src/
-      │   ├── components/      # Reusable parts of the site 
-      │   ├── pages/           # Pages like Home or Movie Details
-      │   ├── App.js           # Main React component
-      │   └── index.js         # Entry point for the React app
+      │   ├── components/      #Reusable parts of the site
+      │   ├── pages/           
+      │   ├── App.js           
+      │   └── index.js        
       │
-      └── package.json         # Lists all dependencies (what we used)
+      └── package.json        
 
 HOW TO RUN IT ON YOUR COMPUTER
  To run EUTOPIA locally:
