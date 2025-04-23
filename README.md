@@ -1,6 +1,6 @@
 EUTOPIA is a react-based web application that allows users to discover movies and watch their trailers. It is a developed collaborative project that offers an intuitive space for MOVIE enthusiasts to explore and keep up with the latest films.
 
-WHAT YOU CAN DO ON EUTOPIA!
+WHAT YOU CAN DO ON EUTOPIA!(Features available)
     * Search for movies - Look up movies by their names and see results instantly.
     * Watch Trailers - Click on any movie to watch its trailer.
 
