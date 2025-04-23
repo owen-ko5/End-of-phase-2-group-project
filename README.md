@@ -1,8 +1,8 @@
-EUTOPIA is a react-based web application that allows users to discover movies and watch their trailers. It is a developed collaborative project that offers an intuitive space for MOVIE enthusiasts to explore.
+EUTOPIA is a react-based web application that allows users to discover movies and watch their trailers. It is a developed collaborative project that offers an intuitive space for MOVIE enthusiasts to explore and keep up with the latest films.
 
 WHAT YOU CAN DO ON EUTOPIA!
     * Search for movies - Look up movies by their names and see results instantly.
-    * Watch Trailers - Click on any movie to its watch trailer right inside the app.
+    * Watch Trailers - Click on any movie to watch its trailer.
 
 TECHNOLOGY USED:
    #REACT */"JSX" a combo of JS and HTML\*
@@ -13,9 +13,9 @@ Before you run it on your computer, this is an example of how your project shoul
       
       End-of-phase-2-group-project/
       │
-      ├── public/              # Static files
+      ├── public/              # These are static files
       ├── src/
-      │   ├── components/      # Reusable parts of the site (like movie cards)
+      │   ├── components/      # Reusable parts of the site 
       │   ├── pages/           # Pages like Home or Movie Details
       │   ├── App.js           # Main React component
       │   └── index.js         # Entry point for the React app
