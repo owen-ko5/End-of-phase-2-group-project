@@ -5,9 +5,9 @@ WHAT YOU CAN DO ON EUTOPIA!
     * Watch Trailers - Click on any movie to watch its trailer.
 
 TECHNOLOGY USED:
-   #REACT */"JSX" a combo of JS and HTML\*
-   #CSS */ to style your work\*
-   #Movie API */fetching real-time movie and trailer\*
+   #REACT - used in creating the UI
+   #CSS - to style your work
+   #Movie API - fetching real-time movie and trailer
 
 Before you run it on your computer, this is an example of how your project should look like on your 'VScode'
       
