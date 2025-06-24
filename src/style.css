@@ -11,17 +11,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000;
+  
 }
 
-.login-box {
-  background-color: #111;
-  padding: 40px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
 
 .login-title {
   font-size: 28px;
@@ -80,6 +72,16 @@ body {
   text-decoration: underline;
 }
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://img.freepik.com/premium-photo/have-good-evening-watching-movie-laptop-with-popcorn_253401-3169.jpg?semt=ais_items_boosted&w=740') no-repeat center center;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -113,6 +115,37 @@ body {
     margin-bottom: 1.5rem;
   }
   
+.navbar {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 20px;
+  background-color: #0d0d0d;
+  color: #00ffff;
+  gap: 50px; 
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #e50914; /* Netflix red on hover */
+}
   #search-input {
     width: 280px;
     padding: 0.75rem 1rem;
@@ -222,10 +255,6 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .login-box button {
-  display: block;
-  margin: 20px auto; /* top-bottom: 20px, left-right: auto to center */
-}
   
   @media (max-width: 600px) {
     header h1 {
@@ -239,93 +268,146 @@ body {
     .movie-details h2 {
       font-size: 1rem;
     }
+  
   }
 
-
-/* Navbar styling */.register-container {
+  .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding-top: 100px;
-  background-color: #000;
+  height: 100vh;
+  background: url('https://img.freepik.com/premium-photo/have-good-evening-watching-movie-laptop-with-popcorn_253401-3169.jpg?semt=ais_items_boosted&w=740') no-repeat center center;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+
+.login-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.login-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-input {
+  width: 200%;
+  height:50px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #222;
+  color: white;
+  font-size: 14px;
+}
+
+.login-input::placeholder {
+  color: #aaa;
+}
+
+.register-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e50914;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-button:hover {
+  background-color: #f6121d;
+}
+
+.login-footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-link {
+  color: #e50914;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Checkbox section */
+.login-form label input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* Navbar container */
 .navbar {
   display: flex;
-  justify-content: center; /* center content horizontally */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #0d0d0d;
-  color: #00ffff;
-  gap: 50px; /* space between title and links */
+  background-color: #111;
+  padding: 15px 30px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Title styling */
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Links container */
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+/* Login and Register links styled as pills */
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  background-color: #e50914;
+  padding: 10px 20px;
+  border-radius: 9999px; /* Pill/oval shape */
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.navbar-links a:hover {
+  background-color: white;
+  transform: scale(1.05);
+}
+/* Style for the Material Symbols icons */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  font-size: 80px; /* This controls the visible size */
+  vertical-align: middle;
+  margin-right: 8px; 
+}
+
+/* Navbar title style */
 .navbar-title {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-}
-
-.navbar-links {
   display: flex;
-  gap: 20px;
-}
-
-.navbar-links a {
-  color: #00ffff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-
-.navbar-links a:hover {
-  color: #e50914; /* Netflix red on hover */
-}
-
-/* Password input with toggle visibility icon inside */
-.password-wrapper {
-  position: relative;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.password-wrapper input {
-  width: 100%;
-  padding: 10px 40px 10px 10px; /* space for the icon on the right */
-  border: none;
-  border-radius: 4px;
-  background-color: #333;
-  color: white;
-  font-size: 16px;
-}
-
-.password-wrapper input::placeholder {
-  color: #aaa;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 18px;
-  user-select: none;
-  color: #ccc;
-  transition: color 0.2s;
-}
-
-.toggle-password:hover {
-  color: #fff;
-}
-/* Shared form container styling (Login / Register) */
-.auth-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  padding-top: 100px; /* Leaves space for the header */
-  min-height: 100vh;
-  background-color: #000;
+  gap: 8px;
 }
-

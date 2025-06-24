@@ -1,54 +1,57 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+import '../style.css';
 
 const Login = () => {
-  const [form, setForm] = useState({ email: '', password: '' });
-  const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  const [form, setForm] = useState({ identifier: '', password: '' });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add login logic here
-    navigate('/dashboard');
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post('http://localhost:5000/api/login', form);
+      localStorage.setItem('token', res.data.access_token);
+      localStorage.setItem('username', res.data.username || form.identifier);
+      window.location.href = '/dashboard';
+    } catch (err) {
+      setError('Login failed. Check your credentials.');
+    }
   };
 
   return (
-    <div className="auth-container">
+    <div className="login-container">
       <div className="login-box">
-        <h2 className="login-title">Login</h2>
+        <h2 className="login-title">Sign In</h2>
 
-        <label>Email</label>
+        <label htmlFor="identifier">Username or Email</label>
         <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          value={form.email}
+          name="identifier"
+          id="identifier"
+          value={form.identifier}
           onChange={handleChange}
+          placeholder="Enter your username or email"
         />
 
-        <label>Password</label>
-        <div className="password-wrapper">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            placeholder="Enter your password"
-            value={form.password}
-            onChange={handleChange}
-          />
-          <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? '🙈' : '👁'}
-          </span>
-        </div>
+        <label htmlFor="password">Password</label>
+        <input
+          name="password"
+          id="password"
+          type="password"
+          value={form.password}
+          onChange={handleChange}
+          placeholder="Enter your password"
+        />
 
         <button onClick={handleLogin}>Sign In</button>
 
-        <div className="login-footer">
-          Don’t have an account? <Link to="/register">Sign up</Link>
-        </div>
+        {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+
+        <p className="login-footer">
+          New to MovieApp? <a href="/register">Sign up now</a>
+        </p>
       </div>
     </div>
   );
