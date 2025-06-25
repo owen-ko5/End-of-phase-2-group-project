@@ -5,19 +5,24 @@ import '../style.css';
 const Login = () => {
   const [form, setForm] = useState({ identifier: '', password: '' });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // Optional: show loading state
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setError(null); // clear error when typing
   };
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
       const res = await axios.post('http://localhost:5000/api/login', form);
       localStorage.setItem('token', res.data.access_token);
       localStorage.setItem('username', res.data.username || form.identifier);
-      window.location.href = '/dashboard';
+      window.location.href = '/'; // ✅ Redirect to homepage after login
     } catch (err) {
       setError('Login failed. Check your credentials.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,7 +50,9 @@ const Login = () => {
           placeholder="Enter your password"
         />
 
-        <button onClick={handleLogin}>Sign In</button>
+        <button onClick={handleLogin} disabled={loading}>
+          {loading ? 'Signing In...' : 'Sign In'}
+        </button>
 
         {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
 

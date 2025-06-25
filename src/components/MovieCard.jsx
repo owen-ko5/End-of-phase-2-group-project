@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { searchMoviesOnArchive, getMovieFile } from '../api/archiveApi';
 import MoviePlayer from './MoviePlayer';
 
+
+
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
   const [movieUrl, setMovieUrl] = useState(null);
