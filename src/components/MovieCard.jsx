@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { searchMoviesOnArchive, getMovieFile } from '../api/archiveApi';
-import MoviePlayer from './MoviePlayer';
-
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
-  const navigate = useNavigate();
-  const [movieUrl, setMovieUrl] = useState(null);
-  const { id, title, name, poster_path, release_date, first_air_date, overview } = movie;
+  const { id, title, name, poster_path, release_date, first_air_date, overview, media_type } = movie;
 
   const movieTitle = title || name || "Unknown Title";
   const movieYear = (release_date || first_air_date || "Unknown").split("-")[0];
@@ -17,38 +11,34 @@ const MovieCard = ({ movie }) => {
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
     : "default-image.jpg";
 
-  const handleWatchMovie = async (e) => {
-    e.stopPropagation(); // Prevent triggering the navigate on card click
-    setMovieUrl(null); // Reset current video
-    const identifier = await searchMoviesOnArchive(movieTitle);
-    if (identifier) {
-      const url = await getMovieFile(identifier);
-      if (url) setMovieUrl(url);
-      else alert("No playable file found.");
-    } else {
-      alert("Movie not found on Internet Archive.");
-    }
-  };
-
   return (
     <div className="movie">
-      <div className="movie-card clickable" onClick={() => navigate(`/movie/${id}`)}>
+      <div className="movie-card clickable">
         <img src={movieImage} alt={movieTitle} />
         <div className="movie-details">
           <h2>{movieTitle}</h2>
           <p><strong>Year:</strong> {movieYear}</p>
           <p className="overview">{movieDesc.slice(0, 100)}...</p>
-          <button onClick={handleWatchMovie} className="watch-button">
-            🎬 Watch Movie
-          </button>
+
+          {/* 🚀 Trailer Only */}
+          <div className="button-row" style={{ marginTop: '1rem' }}>
+            <Link
+              to={`/movies/${id}`}
+              state={{ media_type: media_type || 'movie' }}
+              className="watch-button"
+              style={{
+                textDecoration: 'none',
+                padding: '0.5rem 1rem',
+                background: '#007bff',
+                color: 'white',
+                borderRadius: '5px',
+              }}
+            >
+              ▶️ Watch Trailer
+            </Link>
+          </div>
         </div>
       </div>
-
-      {movieUrl && (
-        <div className="movie-player-overlay">
-          <MoviePlayer url={movieUrl} />
-        </div>
-      )}
     </div>
   );
 };
