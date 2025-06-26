@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
-import Home from './components/Home'; // ✅ This is your movie homepage
+import Home from './components/Home';
 import MovieDetail from './components/MovieDetail';
+import Profile from './components/Profile'; // ✅ Added this
 
 const App = () => {
   const token = localStorage.getItem('token');
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
+        <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} /> {/* ✅ New */}
       </Routes>
     </Router>
   );
